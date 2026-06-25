@@ -76,8 +76,18 @@
   .meal{margin-bottom:12px}
   .meal .t{color:var(--accent);font-weight:700;font-size:13px}
   .note{font-size:12px;color:var(--dim);background:var(--card2);border-radius:10px;padding:10px;margin-top:8px}
-  .ex{display:flex;justify-content:space-between;padding:8px 2px;border-bottom:1px solid var(--line);font-size:14px}
-  .ex span{color:var(--accent)}
+  .ex{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 2px;border-bottom:1px solid var(--line);font-size:14px}
+  .ex span{color:var(--accent);flex:none;padding-top:1px}
+  .exn{font-size:14px;color:var(--txt)}
+  .vid{display:inline-block;margin-top:4px;font-size:12px;color:var(--accent2);text-decoration:none}
+  .vid i{font-style:normal}
+  .vid:active{opacity:.6}
+  .mday{background:var(--card2);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+  .mday h4{margin:0 0 6px;font-size:15px;color:var(--accent2)}
+  .ml{display:flex;gap:10px;padding:6px 0;font-size:13px;border-bottom:1px solid var(--line)}
+  .ml:last-child{border-bottom:none}
+  .ml b{flex:none;width:58px;color:var(--dim);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.5px;padding-top:2px}
+  .ml span{flex:1;color:var(--txt);line-height:1.45}
   /* nav */
   nav{position:fixed;bottom:0;left:0;right:0;background:#14171d;border-top:1px solid var(--line);
     display:flex;max-width:520px;margin:0 auto;z-index:10}
@@ -168,6 +178,51 @@
     </div>
   </div>
 
+  <!-- ============ MEALS ============ -->
+  <div class="view" id="v-meals">
+    <div class="card">
+      <h2>📅 Your week's meals (give to whoever cooks)</h2>
+      <div class="note">Eat only 12 PM → 8 PM. Always half the plate = salad/veg. ~100 g protein/day. No sugar in chai, no biscuit/namkeen. Drink 2.5–3 L water. Phulka = roti with no oil.</div>
+    </div>
+    <div class="card">
+      <div class="mday"><h4>Monday</h4>
+        <div class="ml"><b>Lunch</b><span>Moong dal (1½ katori) + 2 phulka + bhindi sabzi + cucumber-tomato salad + 1 bowl curd</span></div>
+        <div class="ml"><b>4 PM</b><span>Roasted chana (1 fistful) + buttermilk (chaas)</span></div>
+        <div class="ml"><b>Dinner</b><span>Paneer bhurji (100 g paneer) + 1 phulka + green salad</span></div>
+      </div>
+      <div class="mday"><h4>Tuesday</h4>
+        <div class="ml"><b>Lunch</b><span>Rajma (1½ katori) + 1 katori rice + lauki sabzi + salad + curd</span></div>
+        <div class="ml"><b>4 PM</b><span>Moong sprouts chaat + green tea</span></div>
+        <div class="ml"><b>Dinner</b><span>Soya chunk curry (50 g dry soya) + 1 phulka + sautéed veg</span></div>
+      </div>
+      <div class="mday"><h4>Wednesday</h4>
+        <div class="ml"><b>Lunch</b><span>Chole (1½ katori) + 2 phulka + mixed veg + salad + curd</span></div>
+        <div class="ml"><b>4 PM</b><span>Handful almonds + walnuts + 1 fruit</span></div>
+        <div class="ml"><b>Dinner</b><span>Grilled paneer or tofu tikka (100 g) + 1 phulka + salad</span></div>
+      </div>
+      <div class="mday"><h4>Thursday</h4>
+        <div class="ml"><b>Lunch</b><span>Palak + toor dal + 2 phulka + bhindi sabzi + curd</span></div>
+        <div class="ml"><b>4 PM</b><span>Hung curd / Greek yogurt bowl + few seeds</span></div>
+        <div class="ml"><b>Dinner</b><span>Moong dal + vegetable khichdi (light) + 1 bowl curd</span></div>
+      </div>
+      <div class="mday"><h4>Friday</h4>
+        <div class="ml"><b>Lunch</b><span>Besan kadhi + 1 katori rice + sabzi + salad</span></div>
+        <div class="ml"><b>4 PM</b><span>Roasted makhana + buttermilk (chaas)</span></div>
+        <div class="ml"><b>Dinner</b><span>Paneer-capsicum sabzi (100 g paneer) + 1 phulka + salad</span></div>
+      </div>
+      <div class="mday"><h4>Saturday</h4>
+        <div class="ml"><b>Lunch</b><span>Mixed dal + 2 phulka + cabbage-peas sabzi + curd</span></div>
+        <div class="ml"><b>4 PM</b><span>1 fruit + few peanuts</span></div>
+        <div class="ml"><b>Dinner</b><span>Soya / veg pulao (small) + cucumber raita</span></div>
+      </div>
+      <div class="mday"><h4>Sunday</h4>
+        <div class="ml"><b>Lunch</b><span>Chana masala or rajma + 2 phulka + sabzi + salad + curd</span></div>
+        <div class="ml"><b>4 PM</b><span>Sprouts chaat or a small home treat</span></div>
+        <div class="ml"><b>Dinner</b><span>Grilled paneer (100 g) + 1 phulka + big salad</span></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ============ WORKOUT ============ -->
   <div class="view" id="v-work">
     <div class="card">
@@ -183,20 +238,20 @@
     </div>
     <div class="card">
       <h2>🅰 Strength A — push + core</h2>
-      <div class="ex"><div>Wall / knee push-ups</div><span>8–12</span></div>
-      <div class="ex"><div>Chair-assisted squats</div><span>12</span></div>
-      <div class="ex"><div>Glute bridges</div><span>12</span></div>
-      <div class="ex"><div>Plank (knees ok)</div><span>15–20s</span></div>
-      <div class="ex"><div>Standing march / high knees</div><span>30s</span></div>
+      <div class="ex"><div><div class="exn">Wall / knee push-ups</div><a class="vid" href="https://www.youtube.com/watch?v=QpMTk21EmaM" target="_blank" rel="noopener">▶ Watch demo</a></div><span>8–12</span></div>
+      <div class="ex"><div><div class="exn">Chair-assisted squats</div><a class="vid" href="https://www.youtube.com/watch?v=4F0VURsk4uc" target="_blank" rel="noopener">▶ Watch demo</a></div><span>12</span></div>
+      <div class="ex"><div><div class="exn">Glute bridges</div><a class="vid" href="https://www.youtube.com/watch?v=wPM8icPu6H8" target="_blank" rel="noopener">▶ Watch demo</a></div><span>12</span></div>
+      <div class="ex"><div><div class="exn">Plank (knees ok)</div><a class="vid" href="https://www.youtube.com/watch?v=mH5Sfb_KTGg" target="_blank" rel="noopener">▶ Watch demo</a></div><span>15–20s</span></div>
+      <div class="ex"><div><div class="exn">Standing march / high knees</div><a class="vid" href="https://www.youtube.com/watch?v=-tfnUAl4oQA" target="_blank" rel="noopener">▶ Watch demo</a></div><span>30s</span></div>
       <div class="note">2 rounds to start → build to 3. Rest 30–60s between.</div>
     </div>
     <div class="card">
       <h2>🅱 Strength B — legs + core</h2>
-      <div class="ex"><div>Bodyweight squats</div><span>12</span></div>
-      <div class="ex"><div>Reverse lunges</div><span>8/leg</span></div>
-      <div class="ex"><div>Bird-dog</div><span>8/side</span></div>
-      <div class="ex"><div>Dead bug / knee tucks</div><span>10</span></div>
-      <div class="ex"><div>Side plank</div><span>15s/side</span></div>
+      <div class="ex"><div><div class="exn">Bodyweight squats</div><a class="vid" href="https://www.youtube.com/watch?v=cB0cOX7gePg" target="_blank" rel="noopener">▶ Watch demo</a></div><span>12</span></div>
+      <div class="ex"><div><div class="exn">Reverse lunges</div><a class="vid" href="https://www.youtube.com/watch?v=C_P3Q-PssvY" target="_blank" rel="noopener">▶ Watch demo</a></div><span>8/leg</span></div>
+      <div class="ex"><div><div class="exn">Bird-dog</div><a class="vid" href="https://www.youtube.com/watch?v=ZdAHe9_HeEw" target="_blank" rel="noopener">▶ Watch demo</a></div><span>8/side</span></div>
+      <div class="ex"><div><div class="exn">Dead bug / knee tucks</div><a class="vid" href="https://www.youtube.com/watch?v=bxn9FBrt4-A" target="_blank" rel="noopener">▶ Watch demo</a></div><span>10</span></div>
+      <div class="ex"><div><div class="exn">Side plank</div><a class="vid" href="https://www.youtube.com/watch?v=44ND4bOB-T0" target="_blank" rel="noopener">▶ Watch demo</a></div><span>15s/side</span></div>
       <div class="note">Every 2 weeks: add a round, more reps, or harder version. In ~6–8 weeks you'll be ready for full calisthenics.</div>
     </div>
   </div>
@@ -223,6 +278,7 @@
 <nav>
   <button class="on" data-v="today"><span class="ic">🏠</span>Today</button>
   <button data-v="plan"><span class="ic">🍽</span>Diet</button>
+  <button data-v="meals"><span class="ic">📅</span>Meals</button>
   <button data-v="work"><span class="ic">💪</span>Workout</button>
   <button data-v="log"><span class="ic">📉</span>Log</button>
 </nav>
