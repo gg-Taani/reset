@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',-apple-system,Roboto,sans-serif}
+  html,body{background:#f4f7f3}
+  body{width:840px;padding:28px 26px 22px}
+  .head{text-align:center;margin-bottom:20px}
+  .logo{font-weight:800;letter-spacing:4px;color:#1d9e75;font-size:18px}
+  h1{font-size:30px;color:#15321f;margin:4px 0 6px}
+  .sub{font-size:14px;color:#5a6b5f}
+  .sub b{color:#1d9e75}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .day{background:#fff;border:1px solid #e1e8e1;border-radius:14px;overflow:hidden}
+  .dh{background:#1d9e75;color:#fff;font-size:16px;font-weight:700;padding:9px 14px;letter-spacing:.5px}
+  .day.note .dh{background:#3b5168}
+  .meals{padding:8px 14px 12px}
+  .row{display:flex;gap:9px;padding:7px 0;border-bottom:1px dashed #e7ede7}
+  .row:last-child{border-bottom:none}
+  .lab{flex:none;width:74px;font-size:11px;font-weight:700;color:#1d9e75;text-transform:uppercase;letter-spacing:.4px;padding-top:2px}
+  .day.note .lab{color:#3b5168;width:auto}
+  .dish{flex:1;font-size:13.5px;color:#243024;line-height:1.42}
+  .nlist{font-size:13.5px;color:#243024;line-height:1.7;padding:4px 0}
+  .nlist div{padding:3px 0}
+  .foot{text-align:center;font-size:12px;color:#7a8a7e;margin-top:18px}
+</style></head><body>
+  <div class="head">
+    <div class="logo">RE&middot;SET</div>
+    <h1>Weekly Meal Plan</h1>
+    <div class="sub">Pure-vegetarian &middot; high-protein &middot; no egg &nbsp;|&nbsp; cook for the <b>12 PM &ndash; 8 PM</b> window only &middot; phulka = roti without oil</div>
+  </div>
+  <div class="grid">
+    <div class="day"><div class="dh">Monday</div><div class="meals">
+      <div class="row"><div class="lab">Lunch</div><div class="dish">Moong dal (1&frac12; katori) + 2 phulka + bhindi sabzi + cucumber-tomato salad + 1 bowl curd</div></div>
+      <div class="row"><div class="lab">4 PM</div><div class="dish">Roasted chana + buttermilk (chaas)</div></div>
+      <div class="row"><div class="lab">Dinner</div><div class="dish">Paneer bhurji (100g) + 1 phulka + green salad</div></div>
+    </div></div>
+    <div class="day"><div class="dh">Tuesday</div><div class="meals">
+      <div class="row"><div class="lab">Lunch</div><div class="dish">Rajma (1&frac12; katori) + 1 katori rice + lauki sabzi + salad + curd</div></div>
+      <div class="row"><div class="lab">4 PM</div><div class="dish">Moong sprouts chaat + green tea</div></div>
+      <div class="row"><div class="lab">Dinner</div><div class="dish">Soya chunk curry (50g dry soya) + 1 phulka + saut&eacute;ed veg</div></div>
+    </div></div>
+    <div class="day"><div class="dh">Wednesday</div><div class="meals">
+      <div class="row"><div class="lab">Lunch</div><div class="dish">Chole (1&frac12; katori) + 2 phulka + mixed veg + salad + curd</div></div>
+      <div class="row"><div class="lab">4 PM</div><div class="dish">Handful almonds + walnuts + 1 fruit</div></div>
+      <div class="row"><div class="lab">Dinner</div><div class="dish">Grilled paneer or tofu tikka (100g) + 1 phulka + salad</div></div>
+    </div></div>
+    <div class="day"><div class="dh">Thursday</div><div class="meals">
+      <div class="row"><div class="lab">Lunch</div><div class="dish">Palak + toor dal + 2 phulka + bhindi sabzi + curd</div></div>
+      <div class="row"><div class="lab">4 PM</div><div class="dish">Hung curd / Greek yogurt bowl + few seeds</div></div>
+      <div class="row"><div class="lab">Dinner</div><div class="dish">Moong dal + vegetable khichdi (light) + 1 bowl curd</div></div>
+    </div></div>
+    <div class="day"><div class="dh">Friday</div><div class="meals">
+      <div class="row"><div class="lab">Lunch</div><div class="dish">Besan kadhi + 1 katori rice + sabzi + salad</div></div>
+      <div class="row"><div class="lab">4 PM</div><div class="dish">Roasted makhana + buttermilk (chaas)</div></div>
+      <div class="row"><div class="lab">Dinner</div><div class="dish">Paneer-capsicum sabzi (100g) + 1 phulka + salad</div></div>
+    </div></div>
+    <div class="day"><div class="dh">Saturday</div><div class="meals">
+      <div class="row"><div class="lab">Lunch</div><div class="dish">Mixed dal + 2 phulka + cabbage-peas sabzi + curd</div></div>
+      <div class="row"><div class="lab">4 PM</div><div class="dish">1 fruit + few peanuts</div></div>
+      <div class="row"><div class="lab">Dinner</div><div class="dish">Soya / veg pulao (small) + cucumber raita</div></div>
+    </div></div>
+    <div class="day"><div class="dh">Sunday</div><div class="meals">
+      <div class="row"><div class="lab">Lunch</div><div class="dish">Chana masala or rajma + 2 phulka + sabzi + salad + curd</div></div>
+      <div class="row"><div class="lab">4 PM</div><div class="dish">Sprouts chaat or a small home treat</div></div>
+      <div class="row"><div class="lab">Dinner</div><div class="dish">Grilled paneer (100g) + 1 phulka + big salad</div></div>
+    </div></div>
+    <div class="day note"><div class="dh">Every day</div><div class="meals">
+      <div class="nlist">
+        <div>&bull; Half the plate = salad &amp; vegetables</div>
+        <div>&bull; No sugar in chai &middot; no biscuits / namkeen</div>
+        <div>&bull; ~100 g protein a day (dal, paneer, soya, curd)</div>
+        <div>&bull; Drink 2.5&ndash;3 litres of water</div>
+        <div>&bull; Nothing to eat before 12 noon or after 8 PM</div>
+      </div>
+    </div></div>
+  </div>
+  <div class="foot">Goal: 78 kg &rarr; 70 kg &nbsp;&middot;&nbsp; prepared with the RESET plan</div>
+</body></html>
