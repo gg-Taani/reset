@@ -11,19 +11,21 @@
   :root{
     --bg:#0f1115; --card:#1a1d24; --card2:#22262f; --line:#2c313c;
     --txt:#eef1f6; --dim:#9aa3b2; --accent:#3ddc97; --accent2:#46a0ff;
-    --warn:#ffb04d; --bad:#ff6b6b; --r:16px;
+    --water:#46c2ff; --warn:#ffb04d; --bad:#ff6b6b; --r:16px;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    background:var(--bg);color:var(--txt);padding-bottom:78px;line-height:1.45}
+    background:var(--bg);color:var(--txt);padding-bottom:80px;line-height:1.45}
   .wrap{max-width:520px;margin:0 auto;padding:16px}
-  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
   .logo{font-weight:800;letter-spacing:3px;font-size:20px}
   .logo span{color:var(--accent)}
-  .date{font-size:12px;color:var(--dim)}
+  .date{font-size:12px;color:var(--dim);text-align:right}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:14px}
   h2{font-size:15px;margin:0 0 12px;letter-spacing:.3px}
   h3{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin:18px 0 8px}
+  .tip{background:linear-gradient(90deg,#1c2a24,#1a1d24);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;margin-bottom:14px;font-size:13px;color:var(--txt)}
+  .tip b{color:var(--accent)}
   /* goal */
   .goalrow{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px}
   .big{font-size:40px;font-weight:800;line-height:1}
@@ -35,6 +37,7 @@
   .stat{flex:1;background:var(--card2);border-radius:12px;padding:10px;text-align:center}
   .stat b{font-size:19px;display:block}
   .stat small{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
+  .proj{margin-top:12px;font-size:13px;color:var(--accent);background:var(--card2);border-radius:10px;padding:10px;text-align:center}
   /* fasting */
   .fast{text-align:center}
   .ring{position:relative;width:170px;height:170px;margin:6px auto 4px}
@@ -44,6 +47,13 @@
   .ringtxt .cd{font-size:30px;font-weight:800;margin-top:2px}
   .ringtxt .lbl{font-size:11px;color:var(--dim);margin-top:2px}
   .window{font-size:12px;color:var(--dim);margin-top:6px}
+  /* water */
+  .wtop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+  .wtop b{font-size:18px}
+  .drops{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
+  .drop{flex:1;min-width:32px;height:42px;border-radius:10px;background:var(--card2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;transition:.15s;filter:grayscale(1);opacity:.5}
+  .drop.on{background:rgba(70,194,255,.15);border-color:var(--water);filter:none;opacity:1}
   /* checklist */
   .chk{display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line);cursor:pointer}
   .chk:last-child{border-bottom:none}
@@ -52,35 +62,39 @@
   .chk.on .ctxt{color:var(--dim);text-decoration:line-through}
   .ctxt{font-size:14px}
   .ctxt small{display:block;color:var(--dim);font-size:11px;text-decoration:none}
-  /* log */
+  /* log + settings */
   .inrow{display:flex;gap:8px;margin-bottom:10px}
   .inrow input{flex:1;background:var(--card2);border:1px solid var(--line);color:var(--txt);
     border-radius:10px;padding:12px;font-size:15px;width:100%}
+  .field{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+  .field label{font-size:13px;color:var(--dim)}
+  .field input{width:90px;background:var(--card2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:9px;font-size:14px;text-align:right}
   .btn{background:var(--accent);color:#06241a;border:none;border-radius:10px;padding:12px 16px;
     font-weight:700;font-size:14px;cursor:pointer}
   .btn.full{width:100%;margin-top:4px}
+  .btn.ghost{background:var(--card2);color:var(--txt);border:1px solid var(--line)}
   .loglist{margin-top:6px;font-size:13px}
   .logitem{display:flex;justify-content:space-between;padding:8px 2px;border-bottom:1px solid var(--line);color:var(--dim)}
   .logitem b{color:var(--txt)}
+  details{margin-top:10px}
+  summary{font-size:13px;color:var(--accent2);cursor:pointer;padding:6px 0}
+  textarea{width:100%;height:70px;background:var(--card2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:8px;font-size:11px;margin-top:6px}
   /* generic */
   ul{margin:6px 0;padding-left:18px}li{margin:5px 0;font-size:14px}
   table{width:100%;border-collapse:collapse;font-size:13px}
   td{padding:7px 4px;border-bottom:1px solid var(--line)}
   td:last-child{text-align:right;color:var(--accent);font-weight:600;white-space:nowrap}
-  .pill{display:inline-block;background:var(--card2);border:1px solid var(--line);border-radius:20px;
-    padding:5px 11px;font-size:12px;margin:3px 4px 3px 0}
   .day{display:flex;justify-content:space-between;padding:9px 2px;border-bottom:1px solid var(--line);font-size:14px}
   .day:last-child{border-bottom:none}
   .day b{color:var(--accent2)}
   .tag{font-size:11px;color:var(--dim)}
   .meal{margin-bottom:12px}
   .meal .t{color:var(--accent);font-weight:700;font-size:13px}
-  .note{font-size:12px;color:var(--dim);background:var(--card2);border-radius:10px;padding:10px;margin-top:8px}
-  .ex{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 2px;border-bottom:1px solid var(--line);font-size:14px}
+  .note{font-size:12px;color:var(--dim);background:var(--card2);border-radius:10px;padding:10px;margin-top:8px;line-height:1.5}
+  .ex{display:flex;align-items:flex-start;justify-content:space-between;padding:9px 2px;border-bottom:1px solid var(--line);font-size:14px}
   .ex span{color:var(--accent);flex:none;padding-top:1px}
   .exn{font-size:14px;color:var(--txt)}
   .vid{display:inline-block;margin-top:4px;font-size:12px;color:var(--accent2);text-decoration:none}
-  .vid i{font-style:normal}
   .vid:active{opacity:.6}
   .mday{background:var(--card2);border-radius:12px;padding:12px 14px;margin-bottom:10px}
   .mday h4{margin:0 0 6px;font-size:15px;color:var(--accent2)}
@@ -91,9 +105,9 @@
   /* nav */
   nav{position:fixed;bottom:0;left:0;right:0;background:#14171d;border-top:1px solid var(--line);
     display:flex;max-width:520px;margin:0 auto;z-index:10}
-  nav button{flex:1;background:none;border:none;color:var(--dim);padding:10px 0 12px;font-size:10px;
-    letter-spacing:.5px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
-  nav button .ic{font-size:19px}
+  nav button{flex:1;background:none;border:none;color:var(--dim);padding:9px 0 11px;font-size:9.5px;
+    letter-spacing:.3px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
+  nav button .ic{font-size:18px}
   nav button.on{color:var(--accent)}
   .view{display:none}.view.on{display:block;animation:fade .25s}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
@@ -108,6 +122,8 @@
 
   <!-- ============ TODAY ============ -->
   <div class="view on" id="v-today">
+    <div class="tip" id="tip"></div>
+
     <div class="card">
       <div class="goalrow">
         <div><span class="big" id="curW">78</span><span class="unit"> kg</span></div>
@@ -119,6 +135,7 @@
         <div class="stat"><b id="bmi">–</b><small>BMI</small></div>
         <div class="stat"><b id="streak">0</b><small>day streak</small></div>
       </div>
+      <div class="proj" id="proj"></div>
     </div>
 
     <div class="card fast">
@@ -140,12 +157,19 @@
     </div>
 
     <div class="card">
-      <h2>✅ Today's 6 wins</h2>
+      <div class="wtop"><h2 style="margin:0">💧 Water today</h2><div><b id="wCount">0</b><span class="tag" id="wLitres"></span></div></div>
+      <div class="drops" id="drops"></div>
+      <div class="tag" style="margin-top:8px">Tap a glass as you drink. Target 10 glasses (~2.5–3 L).</div>
+    </div>
+
+    <div class="card">
+      <h2>✅ Today's wins</h2>
       <div id="checklist"></div>
+      <div class="tag" style="margin-top:8px">Tick 5 of 6 to keep your streak alive — rest days count too.</div>
     </div>
   </div>
 
-  <!-- ============ PLAN ============ -->
+  <!-- ============ DIET ============ -->
   <div class="view" id="v-plan">
     <div class="card">
       <h2>🍽 The 3 rules</h2>
@@ -154,14 +178,7 @@
         <li><b>Half-plate veg/salad</b>, ¼ protein, ¼ carbs. Halve the roti-rice.</li>
         <li><b>Zero sugar in chai, no biscuit/namkeen.</b> This is your #1 fix.</li>
       </ul>
-      <div class="note">Target ≈ 1,600 kcal/day → about 0.5 kg/week → 8 kg in ~3.5–4 months. Steady wins.</div>
-    </div>
-    <div class="card">
-      <h2>📅 A sample day (eat 12–8)</h2>
-      <div class="meal"><span class="t">Till 12 noon — FAST</span><div class="tag">Water · black coffee · green tea. Nothing else.</div></div>
-      <div class="meal"><span class="t">12:00 Lunch</span><div>2 roti OR 1 katori rice + 1 katori dal/rajma + big sabzi + salad + curd</div></div>
-      <div class="meal"><span class="t">4:00 Snack</span><div>Sprouts chaat / roasted chana / makhana / fruit + few nuts. Tea — no sugar, no biscuit.</div></div>
-      <div class="meal"><span class="t">7:30 Dinner (lighter)</span><div>Paneer bhurji or soya/tofu sabzi + 1 roti + big salad. Go easy on rice at night.</div></div>
+      <div class="note">Target ≈ 1,600 kcal/day → about 0.5 kg/week → 8 kg in ~3.5–4 months. Steady wins. Open the Meals tab for this week's exact dishes.</div>
     </div>
     <div class="card">
       <h2>💪 Protein toolkit (veg · dairy · no egg)</h2>
@@ -181,44 +198,44 @@
   <!-- ============ MEALS ============ -->
   <div class="view" id="v-meals">
     <div class="card">
-      <h2>📅 Your week's meals (give to whoever cooks)</h2>
+      <h2>📅 This week's meals</h2>
       <div class="note">Eat only 12 PM → 8 PM. Always half the plate = salad/veg. ~100 g protein/day. No sugar in chai, no biscuit/namkeen. Drink 2.5–3 L water. Phulka = roti with no oil.</div>
     </div>
     <div class="card">
       <div class="mday"><h4>Monday</h4>
-        <div class="ml"><b>Lunch</b><span>Moong dal (1½ katori) + 2 phulka + bhindi sabzi + cucumber-tomato salad + 1 bowl curd</span></div>
-        <div class="ml"><b>4 PM</b><span>Roasted chana (1 fistful) + buttermilk (chaas)</span></div>
-        <div class="ml"><b>Dinner</b><span>Paneer bhurji (100 g paneer) + 1 phulka + green salad</span></div>
+        <div class="ml"><b>Lunch</b><span>Masoor dal (1½ katori) + 2 phulka + turai sabzi + tomato-cucumber-onion salad + 1 bowl curd</span></div>
+        <div class="ml"><b>4 PM</b><span>Roasted makhana + masala buttermilk (chaas)</span></div>
+        <div class="ml"><b>Dinner</b><span>Paneer tikka (100 g) + 1 phulka + green salad</span></div>
       </div>
       <div class="mday"><h4>Tuesday</h4>
-        <div class="ml"><b>Lunch</b><span>Rajma (1½ katori) + 1 katori rice + lauki sabzi + salad + curd</span></div>
-        <div class="ml"><b>4 PM</b><span>Moong sprouts chaat + green tea</span></div>
-        <div class="ml"><b>Dinner</b><span>Soya chunk curry (50 g dry soya) + 1 phulka + sautéed veg</span></div>
+        <div class="ml"><b>Lunch</b><span>Kala chana (1½ katori) + 1 katori rice + bhindi sabzi + salad + curd</span></div>
+        <div class="ml"><b>4 PM</b><span>1 fruit + 6–8 almonds</span></div>
+        <div class="ml"><b>Dinner</b><span>Tofu bhurji (150 g tofu) + 1 phulka + sautéed beans</span></div>
       </div>
       <div class="mday"><h4>Wednesday</h4>
-        <div class="ml"><b>Lunch</b><span>Chole (1½ katori) + 2 phulka + mixed veg + salad + curd</span></div>
-        <div class="ml"><b>4 PM</b><span>Handful almonds + walnuts + 1 fruit</span></div>
-        <div class="ml"><b>Dinner</b><span>Grilled paneer or tofu tikka (100 g) + 1 phulka + salad</span></div>
+        <div class="ml"><b>Lunch</b><span>Lobia (black-eyed peas) curry + 2 phulka + mixed veg + salad + curd</span></div>
+        <div class="ml"><b>4 PM</b><span>Moong sprouts chaat + green tea</span></div>
+        <div class="ml"><b>Dinner</b><span>Palak paneer (100 g paneer) + 1 phulka + salad</span></div>
       </div>
       <div class="mday"><h4>Thursday</h4>
-        <div class="ml"><b>Lunch</b><span>Palak + toor dal + 2 phulka + bhindi sabzi + curd</span></div>
+        <div class="ml"><b>Lunch</b><span>Toor dal + 2 phulka + cabbage-peas sabzi + salad + curd</span></div>
         <div class="ml"><b>4 PM</b><span>Hung curd / Greek yogurt bowl + few seeds</span></div>
-        <div class="ml"><b>Dinner</b><span>Moong dal + vegetable khichdi (light) + 1 bowl curd</span></div>
+        <div class="ml"><b>Dinner</b><span>Soya keema (50 g soya) with veg + 1 phulka + salad</span></div>
       </div>
       <div class="mday"><h4>Friday</h4>
-        <div class="ml"><b>Lunch</b><span>Besan kadhi + 1 katori rice + sabzi + salad</span></div>
-        <div class="ml"><b>4 PM</b><span>Roasted makhana + buttermilk (chaas)</span></div>
-        <div class="ml"><b>Dinner</b><span>Paneer-capsicum sabzi (100 g paneer) + 1 phulka + salad</span></div>
+        <div class="ml"><b>Lunch</b><span>Rajma (1½ katori) + 1 katori rice + lauki sabzi + salad + curd</span></div>
+        <div class="ml"><b>4 PM</b><span>Roasted chana + green tea</span></div>
+        <div class="ml"><b>Dinner</b><span>Paneer bhurji (100 g) + 1 phulka + cucumber salad</span></div>
       </div>
       <div class="mday"><h4>Saturday</h4>
-        <div class="ml"><b>Lunch</b><span>Mixed dal + 2 phulka + cabbage-peas sabzi + curd</span></div>
-        <div class="ml"><b>4 PM</b><span>1 fruit + few peanuts</span></div>
-        <div class="ml"><b>Dinner</b><span>Soya / veg pulao (small) + cucumber raita</span></div>
+        <div class="ml"><b>Lunch</b><span>Dal makhani (light, low cream) + 2 phulka + bhindi + salad + curd</span></div>
+        <div class="ml"><b>4 PM</b><span>1 fruit + handful walnuts</span></div>
+        <div class="ml"><b>Dinner</b><span>2 moong/besan cheela + mint chutney + salad</span></div>
       </div>
       <div class="mday"><h4>Sunday</h4>
-        <div class="ml"><b>Lunch</b><span>Chana masala or rajma + 2 phulka + sabzi + salad + curd</span></div>
-        <div class="ml"><b>4 PM</b><span>Sprouts chaat or a small home treat</span></div>
-        <div class="ml"><b>Dinner</b><span>Grilled paneer (100 g) + 1 phulka + big salad</span></div>
+        <div class="ml"><b>Lunch</b><span>Chole (1½ katori) + 2 phulka + mixed veg + salad + curd</span></div>
+        <div class="ml"><b>4 PM</b><span>Grilled paneer cubes (80 g) or sprouts</span></div>
+        <div class="ml"><b>Dinner</b><span>Mix veg + tofu/paneer (100 g) + 1 phulka + big salad</span></div>
       </div>
     </div>
   </div>
@@ -272,6 +289,21 @@
       <svg id="chart" width="100%" height="160" viewBox="0 0 480 160" preserveAspectRatio="none"></svg>
       <div class="loglist" id="loglist"></div>
     </div>
+    <div class="card">
+      <h2>⚙ My numbers</h2>
+      <div class="field"><label>Starting weight (kg)</label><input id="setStart" type="number" inputmode="decimal"></div>
+      <div class="field"><label>Goal weight (kg)</label><input id="setGoal" type="number" inputmode="decimal"></div>
+      <div class="field"><label>Height (cm)</label><input id="setHeight" type="number" inputmode="decimal"></div>
+      <button class="btn full" id="saveSet">Save my numbers</button>
+      <details>
+        <summary>🔒 Back up / restore my data</summary>
+        <div class="tag">Copy this text somewhere safe (Notes / WhatsApp to yourself). To restore on a new phone, paste it back and tap Restore.</div>
+        <textarea id="backup" readonly></textarea>
+        <button class="btn ghost full" id="copyBackup" style="margin-bottom:8px">Copy backup</button>
+        <textarea id="restoreBox" placeholder="Paste a backup here to restore…"></textarea>
+        <button class="btn ghost full" id="doRestore">Restore from pasted text</button>
+      </details>
+    </div>
   </div>
 </div>
 
@@ -284,27 +316,42 @@
 </nav>
 
 <script>
+const DEF = {start:78, goal:70, height:165, waterTarget:10};
 const S = {
-  start: 78, goal: 70, height: 165,
+  get settings(){ return Object.assign({}, DEF, JSON.parse(localStorage.getItem('reset_settings')||'{}')) },
+  set settings(v){ localStorage.setItem('reset_settings', JSON.stringify(v)) },
   get log(){ return JSON.parse(localStorage.getItem('reset_log')||'[]') },
   set log(v){ localStorage.setItem('reset_log', JSON.stringify(v)) },
   get checks(){ return JSON.parse(localStorage.getItem('reset_checks')||'{}') },
-  set checks(v){ localStorage.setItem('reset_checks', JSON.stringify(v)) }
+  set checks(v){ localStorage.setItem('reset_checks', JSON.stringify(v)) },
+  get water(){ return JSON.parse(localStorage.getItem('reset_water')||'{}') },
+  set water(v){ localStorage.setItem('reset_water', JSON.stringify(v)) }
 };
 const todayKey = ()=> new Date().toISOString().slice(0,10);
 const $ = id => document.getElementById(id);
 
-// ---- date header
 $('today').textContent = new Date().toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
 
-// ---- checklist items
+// ---- daily focus tip
+const TIPS = [
+  "<b>Sunday:</b> weigh in, log it, and glance at this week's meals.",
+  "<b>Today:</b> the easiest win is no biscuit with your chai. Start there.",
+  "<b>Tip:</b> a glass of water before a meal = smaller portion, naturally.",
+  "<b>Tip:</b> protein first on the plate — dal/paneer/curd before the roti.",
+  "<b>Tip:</b> the after-dinner walk matters most. 10 minutes, every night.",
+  "<b>Tip:</b> hungry before noon? Black coffee or water — it passes in 20 min.",
+  "<b>Tip:</b> didn't sleep well? Still walk. Consistency beats intensity."
+];
+$('tip').innerHTML = TIPS[new Date().getDay()];
+
+// ---- checklist
 const ITEMS = [
   ['Closed the fast till 12 noon','only water / black coffee / plain tea'],
   ['Protein at every meal','dal, paneer, curd, soya, sprouts'],
   ['No sugar in chai · no biscuit/namkeen','the big one'],
   ['Post-lunch 10-min walk',''],
   ['Post-dinner walk',''],
-  ["Today's workout / walk done","per the schedule"]
+  ["Today's workout / walk done","skip guilt-free on rest days"]
 ];
 function renderChecks(){
   const c = S.checks[todayKey()] || {};
@@ -319,43 +366,77 @@ function renderChecks(){
   });
 }
 
-// ---- goal + stats
-function currentWeight(){ const l=S.log; return l.length? l[l.length-1].w : S.start; }
+// ---- water
+function renderWater(){
+  const t = S.settings.waterTarget;
+  const cur = (S.water[todayKey()]||0);
+  $('wCount').textContent = cur + ' / ' + t;
+  $('wLitres').textContent = ' glasses · ~' + (cur*0.25).toFixed(1) + ' L';
+  let html='';
+  for(let i=0;i<t;i++){ html += `<div class="drop ${i<cur?'on':''}" data-w="${i}">💧</div>`; }
+  $('drops').innerHTML = html;
+  document.querySelectorAll('.drop').forEach(el=>el.onclick=()=>{
+    const i = +el.dataset.w; const w=S.water; const k=todayKey();
+    const cur=(w[k]||0);
+    w[k] = (i+1===cur) ? i : i+1;   // tap last filled to unfill, else fill up to here
+    S.water=w; renderWater();
+  });
+}
+
+// ---- goal + stats + projection
+function currentWeight(){ const l=S.log; return l.length? l[l.length-1].w : S.settings.start; }
 function renderGoal(){
-  const cur = currentWeight();
+  const st=S.settings, cur=currentWeight();
   $('curW').textContent = cur;
-  $('goalW').textContent = S.goal;
-  const lost = Math.max(0, S.start - cur);
-  const pct = Math.min(100, Math.round(lost/(S.start-S.goal)*100));
-  $('goalFill').style.width = pct+'%';
+  $('goalW').textContent = st.goal;
+  const lost = Math.max(0, st.start - cur);
+  const span = Math.max(0.1, st.start - st.goal);
+  $('goalFill').style.width = Math.min(100, Math.round(lost/span*100))+'%';
   $('lost').textContent = lost.toFixed(1);
-  $('toGo').textContent = (cur>S.goal? (cur-S.goal).toFixed(1)+' kg to go':'goal hit! 🎉');
-  $('bmi').textContent = (cur/Math.pow(S.height/100,2)).toFixed(1);
-  // streak: consecutive days (incl today) with all 6 checked
+  $('toGo').textContent = (cur>st.goal? (cur-st.goal).toFixed(1)+' kg to go':'goal hit! 🎉');
+  $('bmi').textContent = (cur/Math.pow(st.height/100,2)).toFixed(1);
+  // streak: consecutive days (back from today) with >=5 of 6 ticked
   let streak=0; const ch=S.checks;
   for(let d=0; ;d++){
     const dt=new Date(); dt.setDate(dt.getDate()-d);
     const k=dt.toISOString().slice(0,10); const day=ch[k];
-    const done = day && Object.values(day).filter(Boolean).length>=6;
-    if(done) streak++; else break;
+    const done = day && Object.values(day).filter(Boolean).length>=5;
+    if(done) streak++; else { if(d===0) {} ; break; }
   }
   $('streak').textContent = streak;
+  // projection
+  const p = projection();
+  const el=$('proj');
+  if(!p){ el.textContent='Log your weight weekly to see your projected finish date.'; }
+  else if(p.done){ el.textContent='🎉 You’ve reached your goal weight!'; }
+  else if(p.stalled){ el.textContent='Trend is flat right now — tighten portions or add a walk. You’ve got this.'; }
+  else { el.innerHTML='On this pace: <b>'+st.goal+' kg by ~'+p.date.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})+'</b> ('+p.weeks+' wks)'; }
+}
+function projection(){
+  const l=S.log; if(l.length<2) return null;
+  const a=l[0], b=l[l.length-1];
+  const days=(new Date(b.d)-new Date(a.d))/86400000; if(days<=0) return null;
+  const rate=(a.w-b.w)/days;
+  const toGoal=b.w - S.settings.goal;
+  if(toGoal<=0) return {done:true};
+  if(rate<=0.005) return {stalled:true};
+  const daysLeft=toGoal/rate;
+  return {date:new Date(new Date(b.d).getTime()+daysLeft*86400000), weeks:Math.max(1,Math.round(daysLeft/7))};
 }
 
 // ---- fasting ring
 function renderFast(){
   const now=new Date(); const h=now.getHours()+now.getMinutes()/60;
-  const eatStart=12, eatEnd=20;
-  let state,end,total,start;
+  const eatStart=12, eatEnd=20; let state,end,start;
   if(h>=eatStart && h<eatEnd){ state='EATING'; start=eatStart; end=eatEnd; }
   else { state='FASTING'; if(h>=eatEnd){start=eatEnd; end=eatStart+24;} else {start=eatEnd-24; end=eatStart;} }
-  total=end-start; const elapsed=h-start; const left=end-h;
+  const total=end-start, elapsed=h-start, left=end-h;
   const pct=Math.max(0,Math.min(1,elapsed/total));
   $('fState').textContent=state;
   const hh=Math.floor(left), mm=Math.round((left-hh)*60);
   $('fCD').textContent=`${hh}h ${mm.toString().padStart(2,'0')}m`;
   $('fLbl').textContent= state==='EATING'?'until window closes':'until you can eat';
-  const circ=465; $('ringFill').style.strokeDashoffset = circ*(1-pct);
+  $('ringFill').style.strokeDashoffset = 465*(1-pct);
   $('ringFill').setAttribute('stroke', state==='EATING'?'#46a0ff':'#3ddc97');
 }
 
@@ -365,16 +446,16 @@ function renderLog(){
   $('loglist').innerHTML = l.slice().reverse().map(x=>
     `<div class="logitem"><span>${new Date(x.d).toLocaleDateString('en-IN',{day:'numeric',month:'short'})}</span>
      <span><b>${x.w} kg</b>${x.waist?' · '+x.waist+' cm':''}</span></div>`).join('') || '<div class="tag">No readings yet — add your first above.</div>';
-  // chart
   const svg=$('chart');
   if(l.length<2){ svg.innerHTML=`<text x="240" y="80" fill="#9aa3b2" font-size="13" text-anchor="middle">Add 2+ readings to see your trend</text>`; return; }
-  const ws=l.map(x=>x.w); const min=Math.min(...ws,S.goal)-1, max=Math.max(...ws)+1;
+  const goal=S.settings.goal;
+  const ws=l.map(x=>x.w); const min=Math.min(...ws,goal)-1, max=Math.max(...ws)+1;
   const X=i=>20+i*(440/(l.length-1)); const Y=w=>140-((w-min)/(max-min))*120;
   const pts=l.map((x,i)=>`${X(i)},${Y(x.w)}`).join(' ');
-  const gY=Y(S.goal);
+  const gY=Y(goal);
   svg.innerHTML=`
     <line x1="20" y1="${gY}" x2="460" y2="${gY}" stroke="#3ddc97" stroke-dasharray="4 4" opacity=".6"/>
-    <text x="462" y="${gY-4}" fill="#3ddc97" font-size="10" text-anchor="end">goal ${S.goal}</text>
+    <text x="462" y="${gY-4}" fill="#3ddc97" font-size="10" text-anchor="end">goal ${goal}</text>
     <polyline points="${pts}" fill="none" stroke="#46a0ff" stroke-width="2.5"/>
     ${l.map((x,i)=>`<circle cx="${X(i)}" cy="${Y(x.w)}" r="3.5" fill="#46a0ff"/>`).join('')}`;
 }
@@ -383,9 +464,37 @@ $('saveLog').onclick=()=>{
   const waist=parseFloat($('inWaist').value)||null;
   const l=S.log; const k=todayKey();
   const ex=l.find(x=>x.d===k); if(ex){ex.w=w; ex.waist=waist;} else l.push({d:k,w,waist});
+  l.sort((a,b)=>a.d<b.d?-1:1);
   S.log=l; $('inW').value='';$('inWaist').value='';
-  renderLog(); renderGoal();
+  renderLog(); renderGoal(); refreshBackup();
   document.querySelector('nav button[data-v="today"]').click();
+};
+
+// ---- settings
+function loadSettings(){ const s=S.settings; $('setStart').value=s.start; $('setGoal').value=s.goal; $('setHeight').value=s.height; }
+$('saveSet').onclick=()=>{
+  const s=S.settings;
+  s.start=parseFloat($('setStart').value)||s.start;
+  s.goal=parseFloat($('setGoal').value)||s.goal;
+  s.height=parseFloat($('setHeight').value)||s.height;
+  S.settings=s; renderGoal(); renderLog(); refreshBackup();
+  alert('Saved!');
+};
+
+// ---- backup / restore
+function refreshBackup(){
+  $('backup').value = JSON.stringify({settings:S.settings, log:S.log, checks:S.checks, water:S.water});
+}
+$('copyBackup').onclick=()=>{ const t=$('backup'); t.select(); document.execCommand('copy');
+  try{navigator.clipboard.writeText(t.value)}catch(e){}; $('copyBackup').textContent='Copied ✓'; setTimeout(()=>$('copyBackup').textContent='Copy backup',1500); };
+$('doRestore').onclick=()=>{
+  try{ const d=JSON.parse($('restoreBox').value);
+    if(d.settings)localStorage.setItem('reset_settings',JSON.stringify(d.settings));
+    if(d.log)localStorage.setItem('reset_log',JSON.stringify(d.log));
+    if(d.checks)localStorage.setItem('reset_checks',JSON.stringify(d.checks));
+    if(d.water)localStorage.setItem('reset_water',JSON.stringify(d.water));
+    alert('Restored! Reloading…'); location.reload();
+  }catch(e){ alert('That backup text doesn’t look right — please paste the whole thing.'); }
 };
 
 // ---- nav
@@ -395,7 +504,7 @@ document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
   b.classList.add('on'); $('v-'+b.dataset.v).classList.add('on'); window.scrollTo(0,0);
 });
 
-renderChecks(); renderGoal(); renderFast(); renderLog();
+loadSettings(); renderChecks(); renderWater(); renderGoal(); renderFast(); renderLog(); refreshBackup();
 setInterval(renderFast, 30000);
 </script>
 </body>
