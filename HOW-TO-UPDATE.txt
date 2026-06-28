@@ -1,0 +1,39 @@
+==================================================
+  RESET — my weight-loss app  ·  quick reference
+==================================================
+
+WHAT IT IS
+  A personal fitness app: fasting timer, daily checklist,
+  diet plan, workout videos, weekly meal plan, weight log.
+  Goal: 78 kg -> 70 kg.
+
+WHERE TO OPEN IT (on iPhone or any browser)
+  https://gg-taani.github.io/reset
+
+MEAL CHART (to send wife / print)
+  https://gg-taani.github.io/reset/meal-plan.png
+
+--------------------------------------------------
+HOW TO CHANGE / UPDATE THE APP IN FUTURE
+--------------------------------------------------
+  I do NOT need this old conversation.
+  Just open a NEW chat in Cowork and say, for example:
+     "Update my RESET weight-loss app — change X"
+     "Refresh my meal plan for next week"
+     "Add a water tracker to my fitness app"
+  Claude has this project saved in memory and will
+  pick up right where we left off, then re-publish.
+
+--------------------------------------------------
+TECHNICAL HOMES (for reference)
+--------------------------------------------------
+  GitHub account : gg-Taani
+  Code repo      : github.com/gg-Taani/reset
+  Laptop copy    : C:\Users\hp\Desktop\CoWork\RESET-app
+  Hosting        : GitHub Pages (free, permanent)
+
+REMINDERS
+  Daily + weekly nudges are on Google Calendar
+  (gaurav@taaniwears.com). Sunday 9 PM = refresh meals.
+
+==================================================
