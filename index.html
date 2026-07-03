@@ -11,7 +11,7 @@
   :root{
     --bg:#0f1115; --card:#1a1d24; --card2:#22262f; --line:#2c313c;
     --txt:#eef1f6; --dim:#9aa3b2; --accent:#3ddc97; --accent2:#46a0ff;
-    --water:#46c2ff; --warn:#ffb04d; --bad:#ff6b6b; --r:16px;
+    --water:#46c2ff; --warn:#ffb04d; --bad:#ff6b6b; --wa:#25D366; --r:16px;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
@@ -23,7 +23,6 @@
   .date{font-size:12px;color:var(--dim);text-align:right}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:14px}
   h2{font-size:15px;margin:0 0 12px;letter-spacing:.3px}
-  h3{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin:18px 0 8px}
   .tip{background:linear-gradient(90deg,#1c2a24,#1a1d24);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;margin-bottom:14px;font-size:13px;color:var(--txt)}
   .tip b{color:var(--accent)}
   /* goal */
@@ -38,6 +37,37 @@
   .stat b{font-size:19px;display:block}
   .stat small{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
   .proj{margin-top:12px;font-size:13px;color:var(--accent);background:var(--card2);border-radius:10px;padding:10px;text-align:center}
+  /* vitals */
+  .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .vtile{background:var(--card2);border-radius:12px;padding:12px;position:relative}
+  .vtile .vt{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:5px}
+  .vtile b{font-size:22px;display:block;margin:4px 0 2px}
+  .vtile b .u{font-size:11px;color:var(--dim);font-weight:500}
+  .badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.3px}
+  .badge.good{background:rgba(61,220,151,.15);color:var(--accent)}
+  .badge.warn{background:rgba(255,176,77,.15);color:var(--warn)}
+  .badge.bad{background:rgba(255,107,107,.18);color:var(--bad)}
+  .badge.none{background:var(--card);color:var(--dim)}
+  .vin{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+  .vin .fld{display:flex;flex-direction:column;gap:4px}
+  .vin label{font-size:11px;color:var(--dim);letter-spacing:.3px}
+  .vin input{background:var(--card2);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:11px;font-size:16px;width:100%}
+  .bp2{display:flex;gap:6px;align-items:center}
+  .bp2 input{flex:1;min-width:0}
+  .bp2 span{color:var(--dim)}
+  .bars{display:flex;align-items:flex-end;gap:6px;height:90px;margin-top:10px}
+  .bcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
+  .bcol .b{width:100%;border-radius:6px 6px 3px 3px;background:var(--card2);min-height:3px;transition:height .4s}
+  .bcol .b.hit{background:linear-gradient(180deg,var(--accent),#1f8f63)}
+  .bcol .b.part{background:#31506e}
+  .bcol small{font-size:9px;color:var(--dim)}
+  .goalline{font-size:11px;color:var(--dim);margin-top:6px}
+  /* whatsapp */
+  .wabtn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--wa);color:#04220f;border:none;border-radius:12px;padding:14px;font-weight:800;font-size:15px;cursor:pointer;margin-top:10px}
+  .wabtn.ghost{background:var(--card2);color:var(--txt);border:1px solid var(--line);font-weight:600;font-size:13px;padding:11px}
+  .menuprev{background:var(--card2);border-radius:12px;padding:12px;font-size:13px;line-height:1.55}
+  .menuprev .mh{color:var(--accent2);font-weight:700;margin-bottom:4px}
+  .menuprev b{color:var(--accent);font-weight:600}
   /* fasting */
   .fast{text-align:center}
   .ring{position:relative;width:170px;height:170px;margin:6px auto 4px}
@@ -65,10 +95,11 @@
   /* log + settings */
   .inrow{display:flex;gap:8px;margin-bottom:10px}
   .inrow input{flex:1;background:var(--card2);border:1px solid var(--line);color:var(--txt);
-    border-radius:10px;padding:12px;font-size:15px;width:100%}
+    border-radius:10px;padding:12px;font-size:16px;width:100%}
   .field{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
   .field label{font-size:13px;color:var(--dim)}
   .field input{width:90px;background:var(--card2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:9px;font-size:14px;text-align:right}
+  .field input.wide{width:170px;text-align:left}
   .btn{background:var(--accent);color:#06241a;border:none;border-radius:10px;padding:12px 16px;
     font-weight:700;font-size:14px;cursor:pointer}
   .btn.full{width:100%;margin-top:4px}
@@ -88,8 +119,6 @@
   .day:last-child{border-bottom:none}
   .day b{color:var(--accent2)}
   .tag{font-size:11px;color:var(--dim)}
-  .meal{margin-bottom:12px}
-  .meal .t{color:var(--accent);font-weight:700;font-size:13px}
   .note{font-size:12px;color:var(--dim);background:var(--card2);border-radius:10px;padding:10px;margin-top:8px;line-height:1.5}
   .ex{display:flex;align-items:flex-start;justify-content:space-between;padding:9px 2px;border-bottom:1px solid var(--line);font-size:14px}
   .ex span{color:var(--accent);flex:none;padding-top:1px}
@@ -98,6 +127,7 @@
   .vid:active{opacity:.6}
   .mday{background:var(--card2);border-radius:12px;padding:12px 14px;margin-bottom:10px}
   .mday h4{margin:0 0 6px;font-size:15px;color:var(--accent2)}
+  .mday h4 .tdy{font-size:10px;background:rgba(61,220,151,.15);color:var(--accent);border-radius:20px;padding:2px 8px;margin-left:6px;vertical-align:middle;letter-spacing:.5px}
   .ml{display:flex;gap:10px;padding:6px 0;font-size:13px;border-bottom:1px solid var(--line)}
   .ml:last-child{border-bottom:none}
   .ml b{flex:none;width:58px;color:var(--dim);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.5px;padding-top:2px}
@@ -138,6 +168,18 @@
       <div class="proj" id="proj"></div>
     </div>
 
+    <div class="card" id="vitalsMini" style="cursor:pointer">
+      <h2>❤️ Today's vitals <span class="tag" style="font-weight:400">— tap to update</span></h2>
+      <div class="vgrid" id="vminiGrid"></div>
+    </div>
+
+    <div class="card">
+      <h2>📲 Tomorrow's menu → wife</h2>
+      <div class="menuprev" id="tmrPrev"></div>
+      <button class="wabtn" id="waTomorrow">🟢 Send on WhatsApp</button>
+      <div class="tag" id="waHint" style="margin-top:8px"></div>
+    </div>
+
     <div class="card fast">
       <h2 style="text-align:left">⏱ Intermittent Fast — 16:8</h2>
       <div class="ring">
@@ -169,8 +211,44 @@
     </div>
   </div>
 
-  <!-- ============ DIET ============ -->
-  <div class="view" id="v-plan">
+  <!-- ============ HEALTH ============ -->
+  <div class="view" id="v-health">
+    <div class="card">
+      <h2>❤️ Log today's vitals</h2>
+      <div class="vin">
+        <div class="fld"><label>👣 Steps</label><input id="inSteps" type="number" inputmode="numeric" placeholder="e.g. 6500"></div>
+        <div class="fld"><label>🪜 Floors climbed</label><input id="inFloors" type="number" inputmode="numeric" placeholder="e.g. 8"></div>
+        <div class="fld"><label>💓 Heart rate (resting, bpm)</label><input id="inHR" type="number" inputmode="numeric" placeholder="e.g. 72"></div>
+        <div class="fld"><label>🩺 Blood pressure</label>
+          <div class="bp2"><input id="inSys" type="number" inputmode="numeric" placeholder="120"><span>/</span><input id="inDia" type="number" inputmode="numeric" placeholder="80"></div>
+        </div>
+      </div>
+      <button class="btn full" id="saveVitals">Save vitals</button>
+      <div class="note">📱 <b>Steps & floors:</b> your iPhone counts these automatically — open the <b>Health</b> app, the numbers are on the first screen. Copy them here in 10 seconds (best time: end of day).<br>💓 <b>HR & BP:</b> enter whenever you measure — even 2–3 times a week builds a trend.</div>
+    </div>
+
+    <div class="card">
+      <h2>📊 This week</h2>
+      <div class="vgrid" id="vtiles"></div>
+      <div class="bars" id="stepBars"></div>
+      <div class="goalline" id="stepGoalLine"></div>
+    </div>
+
+    <div class="card">
+      <h2>🩺 Recent readings</h2>
+      <div class="loglist" id="vitalList"></div>
+      <div class="note">Guide — <b style="color:var(--accent)">BP normal:</b> under 120/80 · <b style="color:var(--warn)">elevated:</b> 120–139 / 80–89 · <b style="color:var(--bad)">high:</b> 140/90+ · <b>Resting HR:</b> 60–100 bpm is normal; it drops as you get fitter. If BP reads 140/90+ on several days, show these numbers to your doctor — this app tracks, it doesn't diagnose.</div>
+    </div>
+  </div>
+
+  <!-- ============ MEALS (+ diet rules) ============ -->
+  <div class="view" id="v-meals">
+    <div class="card">
+      <h2>📅 This week's meals</h2>
+      <div class="note">Eat only 12 PM → 8 PM. Always half the plate = salad/veg. ~100 g protein/day. No sugar in chai, no biscuit/namkeen. Drink 2.5–3 L water. Phulka = roti with no oil.</div>
+      <button class="wabtn ghost" id="waWeek">🟢 Send full week to wife on WhatsApp</button>
+    </div>
+    <div class="card" id="mealDays"></div>
     <div class="card">
       <h2>🍽 The 3 rules</h2>
       <ul>
@@ -178,65 +256,20 @@
         <li><b>Half-plate veg/salad</b>, ¼ protein, ¼ carbs. Halve the roti-rice.</li>
         <li><b>Zero sugar in chai, no biscuit/namkeen.</b> This is your #1 fix.</li>
       </ul>
-      <div class="note">Target ≈ 1,600 kcal/day → about 0.5 kg/week → 8 kg in ~3.5–4 months. Steady wins. Open the Meals tab for this week's exact dishes.</div>
-    </div>
-    <div class="card">
-      <h2>💪 Protein toolkit (veg · dairy · no egg)</h2>
-      <table>
-        <tr><td>Soya chunks (50 g dry) ⭐</td><td>26 g</td></tr>
-        <tr><td>Paneer (100 g)</td><td>18 g</td></tr>
-        <tr><td>Tofu (100 g)</td><td>12 g</td></tr>
-        <tr><td>Curd / Greek yogurt (bowl)</td><td>8–10 g</td></tr>
-        <tr><td>Dal / rajma / chana (katori)</td><td>7–9 g</td></tr>
-        <tr><td>Sprouts / moong (bowl)</td><td>8–10 g</td></tr>
-        <tr><td>Milk (glass)</td><td>8 g</td></tr>
-        <tr><td>Whey scoop (optional)</td><td>24 g</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- ============ MEALS ============ -->
-  <div class="view" id="v-meals">
-    <div class="card">
-      <h2>📅 This week's meals</h2>
-      <div class="note">Eat only 12 PM → 8 PM. Always half the plate = salad/veg. ~100 g protein/day. No sugar in chai, no biscuit/namkeen. Drink 2.5–3 L water. Phulka = roti with no oil.</div>
-    </div>
-    <div class="card">
-      <div class="mday"><h4>Monday</h4>
-        <div class="ml"><b>Lunch</b><span>Masoor dal (1½ katori) + 2 phulka + turai sabzi + tomato-cucumber-onion salad + 1 bowl curd</span></div>
-        <div class="ml"><b>4 PM</b><span>Roasted makhana + masala buttermilk (chaas)</span></div>
-        <div class="ml"><b>Dinner</b><span>Paneer tikka (100 g) + 1 phulka + green salad</span></div>
-      </div>
-      <div class="mday"><h4>Tuesday</h4>
-        <div class="ml"><b>Lunch</b><span>Kala chana (1½ katori) + 1 katori rice + bhindi sabzi + salad + curd</span></div>
-        <div class="ml"><b>4 PM</b><span>1 fruit + 6–8 almonds</span></div>
-        <div class="ml"><b>Dinner</b><span>Tofu bhurji (150 g tofu) + 1 phulka + sautéed beans</span></div>
-      </div>
-      <div class="mday"><h4>Wednesday</h4>
-        <div class="ml"><b>Lunch</b><span>Lobia (black-eyed peas) curry + 2 phulka + mixed veg + salad + curd</span></div>
-        <div class="ml"><b>4 PM</b><span>Moong sprouts chaat + green tea</span></div>
-        <div class="ml"><b>Dinner</b><span>Palak paneer (100 g paneer) + 1 phulka + salad</span></div>
-      </div>
-      <div class="mday"><h4>Thursday</h4>
-        <div class="ml"><b>Lunch</b><span>Toor dal + 2 phulka + cabbage-peas sabzi + salad + curd</span></div>
-        <div class="ml"><b>4 PM</b><span>Hung curd / Greek yogurt bowl + few seeds</span></div>
-        <div class="ml"><b>Dinner</b><span>Soya keema (50 g soya) with veg + 1 phulka + salad</span></div>
-      </div>
-      <div class="mday"><h4>Friday</h4>
-        <div class="ml"><b>Lunch</b><span>Rajma (1½ katori) + 1 katori rice + lauki sabzi + salad + curd</span></div>
-        <div class="ml"><b>4 PM</b><span>Roasted chana + green tea</span></div>
-        <div class="ml"><b>Dinner</b><span>Paneer bhurji (100 g) + 1 phulka + cucumber salad</span></div>
-      </div>
-      <div class="mday"><h4>Saturday</h4>
-        <div class="ml"><b>Lunch</b><span>Dal makhani (light, low cream) + 2 phulka + bhindi + salad + curd</span></div>
-        <div class="ml"><b>4 PM</b><span>1 fruit + handful walnuts</span></div>
-        <div class="ml"><b>Dinner</b><span>2 moong/besan cheela + mint chutney + salad</span></div>
-      </div>
-      <div class="mday"><h4>Sunday</h4>
-        <div class="ml"><b>Lunch</b><span>Chole (1½ katori) + 2 phulka + mixed veg + salad + curd</span></div>
-        <div class="ml"><b>4 PM</b><span>Grilled paneer cubes (80 g) or sprouts</span></div>
-        <div class="ml"><b>Dinner</b><span>Mix veg + tofu/paneer (100 g) + 1 phulka + big salad</span></div>
-      </div>
+      <details>
+        <summary>💪 Protein toolkit (veg · dairy · no egg)</summary>
+        <table>
+          <tr><td>Soya chunks (50 g dry) ⭐</td><td>26 g</td></tr>
+          <tr><td>Paneer (100 g)</td><td>18 g</td></tr>
+          <tr><td>Tofu (100 g)</td><td>12 g</td></tr>
+          <tr><td>Curd / Greek yogurt (bowl)</td><td>8–10 g</td></tr>
+          <tr><td>Dal / rajma / chana (katori)</td><td>7–9 g</td></tr>
+          <tr><td>Sprouts / moong (bowl)</td><td>8–10 g</td></tr>
+          <tr><td>Milk (glass)</td><td>8 g</td></tr>
+          <tr><td>Whey scoop (optional)</td><td>24 g</td></tr>
+        </table>
+      </details>
+      <div class="note">Target ≈ 1,600 kcal/day → about 0.5 kg/week → 8 kg in ~3.5–4 months. Steady wins.</div>
     </div>
   </div>
 
@@ -251,7 +284,7 @@
       <div class="day"><b>Fri</b><span>Strength A</span></div>
       <div class="day"><b>Sat</b><span>Long walk 30–40 min</span></div>
       <div class="day"><b>Sun</b><span>Rest / stretch / Tai Chi</span></div>
-      <div class="note">EVERY DAY: 10-min walk after lunch + after dinner. Stand up each hour at your desk. Build to 7–8k steps.</div>
+      <div class="note">EVERY DAY: 10-min walk after lunch + after dinner. Stand up each hour at your desk. Build to your daily step goal.</div>
     </div>
     <div class="card">
       <h2>🅰 Strength A — push + core</h2>
@@ -289,12 +322,16 @@
       <svg id="chart" width="100%" height="160" viewBox="0 0 480 160" preserveAspectRatio="none"></svg>
       <div class="loglist" id="loglist"></div>
     </div>
-    <div class="card">
-      <h2>⚙ My numbers</h2>
+    <div class="card" id="settingsCard">
+      <h2>⚙ My numbers & settings</h2>
       <div class="field"><label>Starting weight (kg)</label><input id="setStart" type="number" inputmode="decimal"></div>
       <div class="field"><label>Goal weight (kg)</label><input id="setGoal" type="number" inputmode="decimal"></div>
       <div class="field"><label>Height (cm)</label><input id="setHeight" type="number" inputmode="decimal"></div>
-      <button class="btn full" id="saveSet">Save my numbers</button>
+      <div class="field"><label>Daily step goal</label><input id="setSteps" type="number" inputmode="numeric"></div>
+      <div class="field"><label>Daily floors goal</label><input id="setFloors" type="number" inputmode="numeric"></div>
+      <div class="field"><label>Wife's WhatsApp no.</label><input id="setWife" type="tel" inputmode="tel" class="wide" placeholder="98XXXXXXXX"></div>
+      <div class="tag" style="margin-bottom:8px">Her number is saved only on your phone — it is never uploaded anywhere.</div>
+      <button class="btn full" id="saveSet">Save settings</button>
       <details>
         <summary>🔒 Back up / restore my data</summary>
         <div class="tag">Copy this text somewhere safe (Notes / WhatsApp to yourself). To restore on a new phone, paste it back and tap Restore.</div>
@@ -309,14 +346,14 @@
 
 <nav>
   <button class="on" data-v="today"><span class="ic">🏠</span>Today</button>
-  <button data-v="plan"><span class="ic">🍽</span>Diet</button>
-  <button data-v="meals"><span class="ic">📅</span>Meals</button>
+  <button data-v="health"><span class="ic">❤️</span>Health</button>
+  <button data-v="meals"><span class="ic">🍽</span>Meals</button>
   <button data-v="work"><span class="ic">💪</span>Workout</button>
   <button data-v="log"><span class="ic">📉</span>Log</button>
 </nav>
 
 <script>
-const DEF = {start:78, goal:70, height:165, waterTarget:10};
+const DEF = {start:78, goal:70, height:165, waterTarget:10, stepGoal:8000, floorGoal:10, wife:''};
 const S = {
   get settings(){ return Object.assign({}, DEF, JSON.parse(localStorage.getItem('reset_settings')||'{}')) },
   set settings(v){ localStorage.setItem('reset_settings', JSON.stringify(v)) },
@@ -325,16 +362,175 @@ const S = {
   get checks(){ return JSON.parse(localStorage.getItem('reset_checks')||'{}') },
   set checks(v){ localStorage.setItem('reset_checks', JSON.stringify(v)) },
   get water(){ return JSON.parse(localStorage.getItem('reset_water')||'{}') },
-  set water(v){ localStorage.setItem('reset_water', JSON.stringify(v)) }
+  set water(v){ localStorage.setItem('reset_water', JSON.stringify(v)) },
+  get vitals(){ return JSON.parse(localStorage.getItem('reset_vitals')||'{}') },
+  set vitals(v){ localStorage.setItem('reset_vitals', JSON.stringify(v)) }
 };
-const todayKey = ()=> new Date().toISOString().slice(0,10);
+// local-timezone date key (old version used UTC and shifted before 5:30 AM IST)
+const keyFor = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const todayKey = ()=> keyFor(new Date());
 const $ = id => document.getElementById(id);
 
 $('today').textContent = new Date().toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
 
-// ---- daily focus tip
+// ================= MEALS (single source of truth) =================
+const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MEALS = {
+  Monday:   ['Masoor dal (1½ katori) + 2 phulka + turai sabzi + tomato-cucumber-onion salad + 1 bowl curd',
+             'Roasted makhana + masala buttermilk (chaas)',
+             'Paneer tikka (100 g) + 1 phulka + green salad'],
+  Tuesday:  ['Kala chana (1½ katori) + 1 katori rice + bhindi sabzi + salad + curd',
+             '1 fruit + 6–8 almonds',
+             'Tofu bhurji (150 g tofu) + 1 phulka + sautéed beans'],
+  Wednesday:['Lobia (black-eyed peas) curry + 2 phulka + mixed veg + salad + curd',
+             'Moong sprouts chaat + green tea',
+             'Palak paneer (100 g paneer) + 1 phulka + salad'],
+  Thursday: ['Toor dal + 2 phulka + cabbage-peas sabzi + salad + curd',
+             'Hung curd / Greek yogurt bowl + few seeds',
+             'Soya keema (50 g soya) with veg + 1 phulka + salad'],
+  Friday:   ['Rajma (1½ katori) + 1 katori rice + lauki sabzi + salad + curd',
+             'Roasted chana + green tea',
+             'Paneer bhurji (100 g) + 1 phulka + cucumber salad'],
+  Saturday: ['Dal makhani (light, low cream) + 2 phulka + bhindi + salad + curd',
+             '1 fruit + handful walnuts',
+             '2 moong/besan cheela + mint chutney + salad'],
+  Sunday:   ['Chole (1½ katori) + 2 phulka + mixed veg + salad + curd',
+             'Grilled paneer cubes (80 g) or sprouts',
+             'Mix veg + tofu/paneer (100 g) + 1 phulka + big salad']
+};
+function renderMealDays(){
+  const todayName = DAYS[new Date().getDay()];
+  $('mealDays').innerHTML = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'].map(d=>{
+    const m = MEALS[d];
+    return `<div class="mday"><h4>${d}${d===todayName?'<span class="tdy">TODAY</span>':''}</h4>
+      <div class="ml"><b>Lunch</b><span>${m[0]}</span></div>
+      <div class="ml"><b>4 PM</b><span>${m[1]}</span></div>
+      <div class="ml"><b>Dinner</b><span>${m[2]}</span></div></div>`;
+  }).join('');
+}
+
+// ================= WHATSAPP TO WIFE =================
+function wifeNum(){
+  let n = (S.settings.wife||'').replace(/\D/g,'').replace(/^0+/,'');
+  if(n.length===10) n = '91'+n;
+  return n.length>=11 ? n : null;
+}
+function menuMsg(dayName){
+  const m = MEALS[dayName];
+  return `🥗 *${dayName}'s menu — Gaurav's plan*\n\n`+
+    `🍽 *Lunch (12 PM):* ${m[0]}\n`+
+    `☕ *4 PM:* ${m[1]}\n`+
+    `🌙 *Dinner (before 8 PM):* ${m[2]}\n\n`+
+    `_Half the plate = salad/veg · phulka = no-oil roti · no sugar. Thank you! 🙏_`;
+}
+function weekMsg(){
+  let t = `🥗 *Gaurav's Weekly Meal Plan*\n_Cook for the 12 PM–8 PM window only. Half the plate = salad/veg. High protein, no egg. Phulka = roti without oil._\n`;
+  for(const d of ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']){
+    const m = MEALS[d];
+    t += `\n*${d.toUpperCase()}*\n🍽 ${m[0]}\n☕ ${m[1]}\n🌙 ${m[2]}\n`;
+  }
+  t += `\n_Daily: no sugar in chai, no biscuits/namkeen. Thank you! 🙏_`;
+  return t;
+}
+function sendWA(text){
+  const n = wifeNum();
+  if(!n){
+    alert("One-time setup: save your wife's WhatsApp number first.\n\nTaking you to Settings now — it's the last field.");
+    goTab('log'); $('setWife').focus();
+    return;
+  }
+  window.open('https://wa.me/'+n+'?text='+encodeURIComponent(text), '_blank');
+}
+function tomorrowName(){ const d=new Date(); d.setDate(d.getDate()+1); return DAYS[d.getDay()]; }
+function renderTomorrow(){
+  const dn = tomorrowName(); const m = MEALS[dn];
+  $('tmrPrev').innerHTML = `<div class="mh">${dn}</div>
+    <b>Lunch:</b> ${m[0]}<br><b>4 PM:</b> ${m[1]}<br><b>Dinner:</b> ${m[2]}`;
+  $('waHint').innerHTML = wifeNum()
+    ? 'Opens WhatsApp with the message typed — you just press send. Best time: after dinner.'
+    : '⚠ First save her number once: <b>Log tab → ⚙ Settings → Wife\'s WhatsApp no.</b>';
+}
+$('waTomorrow').onclick = ()=> sendWA(menuMsg(tomorrowName()));
+$('waWeek').onclick = ()=> sendWA(weekMsg());
+
+// ================= VITALS =================
+function bpStatus(s,d){
+  if(s>=140||d>=90) return ['HIGH','bad'];
+  if(s>=120||d>=80) return ['ELEVATED','warn'];
+  return ['NORMAL','good'];
+}
+function hrStatus(h){
+  if(h>100) return ['HIGH','warn'];
+  if(h<50)  return ['LOW','warn'];
+  return ['NORMAL','good'];
+}
+function lastVital(field){       // most recent day that has this field
+  const v = S.vitals;
+  const keys = Object.keys(v).sort().reverse();
+  for(const k of keys){ if(v[k] && v[k][field]!=null) return {k, val:v[k][field], day:v[k]}; }
+  return null;
+}
+function vitalTiles(){
+  const st = S.settings, tk = todayKey(), tv = S.vitals[tk]||{};
+  const steps = tv.steps, floors = tv.floors;
+  const hr = lastVital('hr'), bp = lastVital('sys');
+  const tile = (icon,label,valHtml,badge)=>`
+    <div class="vtile"><div class="vt">${icon} ${label}</div><b>${valHtml}</b>${badge}</div>`;
+  const b = (arr)=> arr? `<span class="badge ${arr[1]}">${arr[0]}</span>` : `<span class="badge none">NO DATA</span>`;
+  const stepsB = steps!=null ? (steps>=st.stepGoal?['GOAL HIT 🎉','good']:steps>=st.stepGoal*.6?['GETTING THERE','warn']:['KEEP MOVING','warn']) : null;
+  const floorsB = floors!=null ? (floors>=st.floorGoal?['GOAL HIT 🎉','good']:['OF '+st.floorGoal+' GOAL','none']) : null;
+  return tile('👣','Steps today', steps!=null?steps.toLocaleString('en-IN'):'–', b(stepsB))
+       + tile('🪜','Floors today', floors!=null?floors:'–', b(floorsB))
+       + tile('💓','Heart rate', hr?hr.val+'<span class="u"> bpm</span>':'–', hr?b(hrStatus(hr.val)):b(null))
+       + tile('🩺','Blood pressure', bp?bp.val+'/'+(bp.day.dia||'–'):'–', bp?b(bpStatus(bp.val,bp.day.dia||0)):b(null));
+}
+function renderVitals(){
+  $('vtiles').innerHTML = vitalTiles();
+  $('vminiGrid').innerHTML = vitalTiles();
+  // 7-day step bars
+  const st=S.settings, v=S.vitals;
+  let bars='', maxSteps=st.stepGoal;
+  const week=[];
+  for(let i=6;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i);
+    const s=(v[keyFor(d)]||{}).steps||0; week.push({d,s}); if(s>maxSteps)maxSteps=s; }
+  for(const w of week){
+    const h=Math.round(w.s/maxSteps*80);
+    const cls=w.s>=st.stepGoal?'hit':(w.s>0?'part':'');
+    bars+=`<div class="bcol"><div class="b ${cls}" style="height:${h}px"></div><small>${'SMTWTFS'[w.d.getDay()]}</small></div>`;
+  }
+  $('stepBars').innerHTML=bars;
+  $('stepGoalLine').textContent='👣 Last 7 days · green = hit your '+st.stepGoal.toLocaleString('en-IN')+'-step goal';
+  // recent readings list
+  const keys=Object.keys(v).sort().reverse().slice(0,10);
+  $('vitalList').innerHTML = keys.length? keys.map(k=>{
+    const x=v[k]; const parts=[];
+    if(x.steps!=null)parts.push('👣 '+x.steps.toLocaleString('en-IN'));
+    if(x.floors!=null)parts.push('🪜 '+x.floors);
+    if(x.hr!=null)parts.push('💓 '+x.hr);
+    if(x.sys!=null){const s=bpStatus(x.sys,x.dia||0);parts.push(`🩺 <span class="badge ${s[1]}">${x.sys}/${x.dia||'–'}</span>`);}
+    return `<div class="logitem"><span>${new Date(k+'T12:00').toLocaleDateString('en-IN',{day:'numeric',month:'short'})}</span><span style="text-align:right"><b>${parts.join(' · ')}</b></span></div>`;
+  }).join('') : '<div class="tag">No vitals yet — add your first reading above.</div>';
+}
+$('saveVitals').onclick=()=>{
+  const g=id=>{const x=parseFloat($(id).value);return isNaN(x)?null:x;};
+  const steps=g('inSteps'), floors=g('inFloors'), hr=g('inHR'), sys=g('inSys'), dia=g('inDia');
+  if(steps==null&&floors==null&&hr==null&&sys==null){alert('Enter at least one value.');return;}
+  if((sys!=null)!==(dia!=null)){alert('For BP, enter both numbers (e.g. 120 / 80).');return;}
+  if(hr!=null&&(hr<30||hr>220)){alert('That heart rate doesn\'t look right — please check.');return;}
+  if(sys!=null&&(sys<70||sys>250||dia<40||dia>150)){alert('That BP reading doesn\'t look right — please check.');return;}
+  const v=S.vitals; const k=todayKey(); v[k]=v[k]||{};
+  if(steps!=null)v[k].steps=steps; if(floors!=null)v[k].floors=floors;
+  if(hr!=null)v[k].hr=hr; if(sys!=null){v[k].sys=sys;v[k].dia=dia;}
+  S.vitals=v;
+  ['inSteps','inFloors','inHR','inSys','inDia'].forEach(i=>$(i).value='');
+  renderVitals(); refreshBackup();
+  if(sys!=null&&bpStatus(sys,dia)[1]==='bad') alert('Saved. Note: '+sys+'/'+dia+' is in the high range — if it stays there over several readings, please show your doctor.');
+};
+$('vitalsMini').onclick=()=> goTab('health');
+
+// ================= daily focus tip =================
 const TIPS = [
-  "<b>Sunday:</b> weigh in, log it, and glance at this week's meals.",
+  "<b>Sunday:</b> weigh in, log it, and send next week's meals to your wife (Meals tab → green button).",
   "<b>Today:</b> the easiest win is no biscuit with your chai. Start there.",
   "<b>Tip:</b> a glass of water before a meal = smaller portion, naturally.",
   "<b>Tip:</b> protein first on the plate — dal/paneer/curd before the roti.",
@@ -344,7 +540,7 @@ const TIPS = [
 ];
 $('tip').innerHTML = TIPS[new Date().getDay()];
 
-// ---- checklist
+// ================= checklist =================
 const ITEMS = [
   ['Closed the fast till 12 noon','only water / black coffee / plain tea'],
   ['Protein at every meal','dal, paneer, curd, soya, sprouts'],
@@ -366,7 +562,7 @@ function renderChecks(){
   });
 }
 
-// ---- water
+// ================= water =================
 function renderWater(){
   const t = S.settings.waterTarget;
   const cur = (S.water[todayKey()]||0);
@@ -383,7 +579,7 @@ function renderWater(){
   });
 }
 
-// ---- goal + stats + projection
+// ================= goal + stats + projection =================
 function currentWeight(){ const l=S.log; return l.length? l[l.length-1].w : S.settings.start; }
 function renderGoal(){
   const st=S.settings, cur=currentWeight();
@@ -395,13 +591,15 @@ function renderGoal(){
   $('lost').textContent = lost.toFixed(1);
   $('toGo').textContent = (cur>st.goal? (cur-st.goal).toFixed(1)+' kg to go':'goal hit! 🎉');
   $('bmi').textContent = (cur/Math.pow(st.height/100,2)).toFixed(1);
-  // streak: consecutive days (back from today) with >=5 of 6 ticked
+  // streak: consecutive done days; an unfinished TODAY doesn't break it
   let streak=0; const ch=S.checks;
-  for(let d=0; ;d++){
+  for(let d=0; d<3650; d++){
     const dt=new Date(); dt.setDate(dt.getDate()-d);
-    const k=dt.toISOString().slice(0,10); const day=ch[k];
+    const k=keyFor(dt); const day=ch[k];
     const done = day && Object.values(day).filter(Boolean).length>=5;
-    if(done) streak++; else { if(d===0) {} ; break; }
+    if(done) streak++;
+    else if(d===0) continue;   // today still in progress — look at yesterday
+    else break;
   }
   $('streak').textContent = streak;
   // projection
@@ -424,7 +622,7 @@ function projection(){
   return {date:new Date(new Date(b.d).getTime()+daysLeft*86400000), weeks:Math.max(1,Math.round(daysLeft/7))};
 }
 
-// ---- fasting ring
+// ================= fasting ring =================
 function renderFast(){
   const now=new Date(); const h=now.getHours()+now.getMinutes()/60;
   const eatStart=12, eatEnd=20; let state,end,start;
@@ -440,11 +638,11 @@ function renderFast(){
   $('ringFill').setAttribute('stroke', state==='EATING'?'#46a0ff':'#3ddc97');
 }
 
-// ---- log + chart
+// ================= log + chart =================
 function renderLog(){
   const l=S.log;
   $('loglist').innerHTML = l.slice().reverse().map(x=>
-    `<div class="logitem"><span>${new Date(x.d).toLocaleDateString('en-IN',{day:'numeric',month:'short'})}</span>
+    `<div class="logitem"><span>${new Date(x.d+'T12:00').toLocaleDateString('en-IN',{day:'numeric',month:'short'})}</span>
      <span><b>${x.w} kg</b>${x.waist?' · '+x.waist+' cm':''}</span></div>`).join('') || '<div class="tag">No readings yet — add your first above.</div>';
   const svg=$('chart');
   if(l.length<2){ svg.innerHTML=`<text x="240" y="80" fill="#9aa3b2" font-size="13" text-anchor="middle">Add 2+ readings to see your trend</text>`; return; }
@@ -467,23 +665,29 @@ $('saveLog').onclick=()=>{
   l.sort((a,b)=>a.d<b.d?-1:1);
   S.log=l; $('inW').value='';$('inWaist').value='';
   renderLog(); renderGoal(); refreshBackup();
-  document.querySelector('nav button[data-v="today"]').click();
+  goTab('today');
 };
 
-// ---- settings
-function loadSettings(){ const s=S.settings; $('setStart').value=s.start; $('setGoal').value=s.goal; $('setHeight').value=s.height; }
+// ================= settings =================
+function loadSettings(){ const s=S.settings;
+  $('setStart').value=s.start; $('setGoal').value=s.goal; $('setHeight').value=s.height;
+  $('setSteps').value=s.stepGoal; $('setFloors').value=s.floorGoal; $('setWife').value=s.wife||'';
+}
 $('saveSet').onclick=()=>{
   const s=S.settings;
   s.start=parseFloat($('setStart').value)||s.start;
   s.goal=parseFloat($('setGoal').value)||s.goal;
   s.height=parseFloat($('setHeight').value)||s.height;
-  S.settings=s; renderGoal(); renderLog(); refreshBackup();
-  alert('Saved!');
+  s.stepGoal=parseInt($('setSteps').value)||s.stepGoal;
+  s.floorGoal=parseInt($('setFloors').value)||s.floorGoal;
+  s.wife=$('setWife').value.trim();
+  S.settings=s; renderGoal(); renderLog(); renderVitals(); renderTomorrow(); refreshBackup();
+  alert('Saved!'+(wifeNum()?' WhatsApp button is ready ✓':''));
 };
 
-// ---- backup / restore
+// ================= backup / restore =================
 function refreshBackup(){
-  $('backup').value = JSON.stringify({settings:S.settings, log:S.log, checks:S.checks, water:S.water});
+  $('backup').value = JSON.stringify({settings:S.settings, log:S.log, checks:S.checks, water:S.water, vitals:S.vitals});
 }
 $('copyBackup').onclick=()=>{ const t=$('backup'); t.select(); document.execCommand('copy');
   try{navigator.clipboard.writeText(t.value)}catch(e){}; $('copyBackup').textContent='Copied ✓'; setTimeout(()=>$('copyBackup').textContent='Copy backup',1500); };
@@ -493,18 +697,23 @@ $('doRestore').onclick=()=>{
     if(d.log)localStorage.setItem('reset_log',JSON.stringify(d.log));
     if(d.checks)localStorage.setItem('reset_checks',JSON.stringify(d.checks));
     if(d.water)localStorage.setItem('reset_water',JSON.stringify(d.water));
+    if(d.vitals)localStorage.setItem('reset_vitals',JSON.stringify(d.vitals));
     alert('Restored! Reloading…'); location.reload();
   }catch(e){ alert('That backup text doesn’t look right — please paste the whole thing.'); }
 };
 
-// ---- nav
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
+// ================= nav =================
+function goTab(name){
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on', x.dataset.v===name));
   document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); $('v-'+b.dataset.v).classList.add('on'); window.scrollTo(0,0);
-});
+  $('v-'+name).classList.add('on'); window.scrollTo(0,0);
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>goTab(b.dataset.v));
+const hashTab=location.hash.replace('#','');
+if(hashTab && document.getElementById('v-'+hashTab)) goTab(hashTab);
 
-loadSettings(); renderChecks(); renderWater(); renderGoal(); renderFast(); renderLog(); refreshBackup();
+loadSettings(); renderMealDays(); renderTomorrow(); renderChecks(); renderWater();
+renderGoal(); renderFast(); renderLog(); renderVitals(); refreshBackup();
 setInterval(renderFast, 30000);
 </script>
 </body>
