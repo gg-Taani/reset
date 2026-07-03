@@ -4,8 +4,16 @@
 
 WHAT IT IS
   A personal fitness app: fasting timer, daily checklist,
-  diet plan, workout videos, weekly meal plan, weight log.
+  diet plan, workout videos, weekly meal plan, weight log,
+  water tracker, health vitals (steps / floors / heart
+  rate / blood pressure), and one-tap WhatsApp of the
+  next day's menu to my wife.
   Goal: 78 kg -> 70 kg.
+
+ONE-TIME SETUP FOR THE WHATSAPP BUTTON
+  In the app: Log tab -> Settings -> "Wife's WhatsApp no."
+  Enter her 10-digit number once, tap Save. The number
+  stays only on my phone - it is never uploaded.
 
 WHERE TO OPEN IT (on iPhone or any browser)
   https://gg-taani.github.io/reset
