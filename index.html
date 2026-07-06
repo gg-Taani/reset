@@ -152,6 +152,7 @@
 
   <!-- ============ TODAY ============ -->
   <div class="view on" id="v-today">
+    <div class="card" id="weighBanner" style="display:none"></div>
     <div class="tip" id="tip"></div>
 
     <div class="card">
@@ -528,6 +529,25 @@ $('saveVitals').onclick=()=>{
 };
 $('vitalsMini').onclick=()=> goTab('health');
 
+// ================= Sunday weigh-in banner =================
+function renderWeighBanner(){
+  const el = $('weighBanner');
+  if(new Date().getDay()!==0){ el.style.display='none'; return; }
+  el.style.display='block';
+  const done = S.log.some(x=>x.d===todayKey());
+  if(done){
+    const w = S.log.find(x=>x.d===todayKey()).w;
+    el.style.borderColor='var(--accent)'; el.style.cursor='default'; el.onclick=null;
+    el.innerHTML = '<h2 style="margin:0;color:var(--accent)">✓ Sunday weigh-in done — '+w+' kg logged</h2>'+
+      '<div class="tag" style="margin-top:6px">Great. See your trend in the Log tab. Next weigh-in: next Sunday 8 AM.</div>';
+  } else {
+    el.style.borderColor='var(--warn)'; el.style.cursor='pointer';
+    el.innerHTML = '<h2 style="margin:0;color:var(--warn)">⚖ It\'s Sunday — weigh-in day!</h2>'+
+      '<div class="tag" style="margin-top:6px">Empty stomach, after toilet, before eating. Tap here to log your weight.</div>';
+    el.onclick = ()=>{ goTab('log'); $('inW').focus(); };
+  }
+}
+
 // ================= daily focus tip =================
 const TIPS = [
   "<b>Sunday:</b> weigh in, log it, and send next week's meals to your wife (Meals tab → green button).",
@@ -664,7 +684,7 @@ $('saveLog').onclick=()=>{
   const ex=l.find(x=>x.d===k); if(ex){ex.w=w; ex.waist=waist;} else l.push({d:k,w,waist});
   l.sort((a,b)=>a.d<b.d?-1:1);
   S.log=l; $('inW').value='';$('inWaist').value='';
-  renderLog(); renderGoal(); refreshBackup();
+  renderLog(); renderGoal(); renderWeighBanner(); refreshBackup();
   goTab('today');
 };
 
@@ -713,7 +733,7 @@ const hashTab=location.hash.replace('#','');
 if(hashTab && document.getElementById('v-'+hashTab)) goTab(hashTab);
 
 loadSettings(); renderMealDays(); renderTomorrow(); renderChecks(); renderWater();
-renderGoal(); renderFast(); renderLog(); renderVitals(); refreshBackup();
+renderGoal(); renderFast(); renderLog(); renderVitals(); renderWeighBanner(); refreshBackup();
 setInterval(renderFast, 30000);
 </script>
 </body>
