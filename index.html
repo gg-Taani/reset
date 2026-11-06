@@ -377,29 +377,28 @@ $('today').textContent = new Date().toLocaleDateString('en-IN',{weekday:'short',
 // ================= MEALS (single source of truth) =================
 const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const MEALS = {
-  Monday:   ['Masoor dal (1½ katori) + 2 phulka + turai sabzi + tomato-cucumber-onion salad + 1 bowl curd',
-             'Roasted makhana + masala buttermilk (chaas)',
-             'Paneer tikka (100 g) + 1 phulka + green salad'],
-  Tuesday:  ['Kala chana (1½ katori) + 1 katori rice + bhindi sabzi + salad + curd',
-             '1 fruit + 6–8 almonds',
-             'Tofu bhurji (150 g tofu) + 1 phulka + sautéed beans'],
-  Wednesday:['Lobia (black-eyed peas) curry + 2 phulka + mixed veg + salad + curd',
-             'Moong sprouts chaat + green tea',
-             'Palak paneer (100 g paneer) + 1 phulka + salad'],
-  Thursday: ['Toor dal + 2 phulka + cabbage-peas sabzi + salad + curd',
-             'Hung curd / Greek yogurt bowl + few seeds',
-             'Soya keema (50 g soya) with veg + 1 phulka + salad'],
-  Friday:   ['Rajma (1½ katori) + 1 katori rice + lauki sabzi + salad + curd',
-             'Roasted chana + green tea',
-             'Paneer bhurji (100 g) + 1 phulka + cucumber salad'],
-  Saturday: ['Dal makhani (light, low cream) + 2 phulka + bhindi + salad + curd',
-             '1 fruit + handful walnuts',
-             '2 moong/besan cheela + mint chutney + salad'],
-  Sunday:   ['Chole (1½ katori) + 2 phulka + mixed veg + salad + curd',
-             'Grilled paneer cubes (80 g) or sprouts',
-             'Mix veg + tofu/paneer (100 g) + 1 phulka + big salad']
-};
-function renderMealDays(){
+  Monday:   ['Chole (1½ katori) + 2 phulka + gajar-matar sabzi + kachumber salad + 1 bowl curd',
+             'Paneer-cucumber chaat (60 g paneer, chaat masala) + green tea',
+             'Moong dal chilla stuffed with paneer (2 chilla, 50 g paneer) + mint chutney + big salad'],
+  Tuesday:  ['Rajma (1½ katori) + 1 katori rice + dahi bhindi (low oil) + tomato-onion salad',
+             'Sprouted moong usal (small bowl) + green tea',
+             'Tofu-capsicum stir-fry (150 g tofu, low oil) + 1 phulka + clear veg soup'],
+  Wednesday:['Dal makhani (light, no cream, 1½ katori) + 2 phulka + lauki-tamatar sabzi + salad + curd',
+             'Boiled soya chunks chaat (30 g dry soya) + green tea',
+             'Palak tofu (100 g tofu) + 1 jowar roti + carrot-cucumber salad'],
+  Thursday: ['Urad-chana dal (1½ katori) + 2 bajra roti + mixed veg + salad + curd',
+             '1 apple + 1 small bowl hung curd',
+             'Soya chunk curry (50 g dry soya) + 1 phulka + onion-cucumber salad'],
+  Friday:   ['Sabut masoor dal (1½ katori) + 2 phulka + tori sabzi + salad + curd',
+             'Masala chaas + small handful roasted peanuts',
+             'Rajma tikki (2, pan-grilled) + curd dip + big salad'],
+  Saturday: ['Kadhai paneer (light, 100 g) + 2 phulka + kachumber salad + curd',
+             'Hung curd dip + carrot-cucumber sticks',
+             'Moong dal-palak soup (big bowl) + 1 jowar roti + grilled paneer cubes (50 g)'],
+  Sunday:   ['Paneer-matar pulao (small, 1 katori, 80 g paneer) + cucumber raita + kachumber salad',
+             'Unsweetened buttermilk (1 glass) + 1 tbsp mixed seeds',
+             'Lauki-moong dal (1½ katori) + 1 phulka + big salad']
+};function renderMealDays(){
   const todayName = DAYS[new Date().getDay()];
   $('mealDays').innerHTML = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'].map(d=>{
     const m = MEALS[d];
